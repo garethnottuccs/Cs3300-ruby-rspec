@@ -3,11 +3,21 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  highest = 0
+  secondhighest = 0
+  arr.each do |n|
+    if n > highest
+      secondhighest = highest
+      highest = n
+    elsif n > secondhighest
+      secondhighest = n
+    end
+  end
+  highest + secondhighest
 end
 
 def sum_to_n? arr, n
@@ -17,11 +27,17 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  hello = "Hello, "
+  hello + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  first = s[0]
+  if first = 'A' || first = 'a' || first = 'E' || first = 'e' || first = 'I' || first = 'i' || first = 'O' || first = 'o' || first = 'U' || first = 'u'
+    return false
+  else
+    return true
+  end
 end
 
 def binary_multiple_of_4? s
