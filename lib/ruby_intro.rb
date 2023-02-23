@@ -47,5 +47,11 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(initialisbn, initialprice)
+    @isbn = initialisbn
+    @price = initialprice
+  end
+  def price_as_string
+    string_price = "$%0.2f" % [price]
+  end
 end
