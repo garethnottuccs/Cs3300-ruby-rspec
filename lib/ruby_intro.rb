@@ -7,9 +7,17 @@ def sum arr
 end
 
 def max_2_sum arr
-  highest = 0
-  secondhighest = 0
-  arr.each do |n|
+  if arr.empty?
+    return 0
+  end
+  
+  if arr.length() == 1
+    return arr[0]
+  end
+
+  highest = arr[0]
+  secondhighest = arr[1]
+  arr[2..-1].each do |n|
     if n > highest
       secondhighest = highest
       highest = n
@@ -21,7 +29,12 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if !arr.empty? && !(arr.length == 1)
+    if arr.combination(2).any? {|a, b| a + b == n}
+      return true
+    end
+  end
+  return false
 end
 
 # Part 2
@@ -32,8 +45,13 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  first = s[0]
-  if first = 'A' || first = 'a' || first = 'E' || first = 'e' || first = 'I' || first = 'i' || first = 'O' || first = 'o' || first = 'U' || first = 'u'
+  if s.empty?
+    return false
+  end
+
+  if !s.match(/^[[:alpha:]]$/)
+    return false
+  elsif s.start_with?('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U')
     return false
   else
     return true
