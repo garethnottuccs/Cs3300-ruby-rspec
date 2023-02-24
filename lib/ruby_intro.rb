@@ -65,11 +65,30 @@ end
 # Part 3
 
 class BookInStock
-  def initialize(initialisbn, initialprice)
-    @isbn = initialisbn
-    @price = initialprice
+  def initialize(isbn, price) # Constructor
+    raise ArgumentError if isbn.empty? # Ensure isbn is not empty. If it is, raise ArgumentError
+    raise ArgumentError if price <= 0 # Ensure price > 0. If not, raise ArgumentError. 
+    @isbn = isbn
+    @price = price
   end
-  def price_as_string
-    string_price = "$%0.2f" % [price]
+
+  def isbn # isbn getter
+    @isbn
+  end
+
+  def price # price getter
+    @price
+  end
+
+  def isbn=(isbn) # isbn setter
+    @isbn = isbn
+  end
+
+  def price=(price) # price setter
+    @price = price
+  end
+
+  def price_as_string # Return price as formatted string
+    "$%0.2f" % [@price]
   end
 end
