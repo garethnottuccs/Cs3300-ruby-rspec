@@ -2,19 +2,20 @@
 
 require_relative '../lib/ruby_intro'
 
-describe 'Ruby intro part 1' do
-  describe '#sum' do
+describe 'Ruby intro part 1' do 
+  describe '#sum' do #'describe' describes a selection of various tests. 
 
-    it 'returns correct sum [1 point]', points: 1 do
-      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer
-      expect(sum([1, 2, 3, 4, 5])).to eq(15)
-      expect(sum([1, 2, 3, 4, -5])).to eq(5)
-      expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90)
+    it 'returns correct sum [1 point]', points: 1 do #'it' describes the behavior that should happen in the test block. In this case, the tests should return the correct sum. 
+      # Like English, 'expect' means that we should expect the behavior to happen for the test to pass. 
+      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer # The sum of the array should be an integer to pass. 
+      expect(sum([1, 2, 3, 4, 5])).to eq(15) # The sum of the array should equal 15 to pass. 
+      expect(sum([1, 2, 3, 4, -5])).to eq(5) # The sum of the array should equal 5 to pass
+      expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90) # The sum of the array should equal -90 to pass. 
     end
 
-    it 'works on the empty array [2 points]', points: 2 do
-      expect { sum([]) }.not_to raise_error
-      expect(sum([])).to be_zero
+    it 'works on the empty array [2 points]', points: 2 do # As name implies, test to make sure it works on empty array. 
+      expect { sum([]) }.not_to raise_error # Make sure an empty array doesn't cause an error. 
+      expect(sum([])).to be_zero # Make sure empty array returns zero. 
     end
   end
 

@@ -29,12 +29,12 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  if !arr.empty? && !(arr.length == 1)
-    if arr.combination(2).any? {|a, b| a + b == n}
-      return true
+  if !arr.empty? && !(arr.length == 1) # Tests to ensure arr has at least two elements. 
+    if arr.combination(2).any? {|a, b| a + b == n} # Uses combination method, getting every possible combination of 2 integers from array. 
+      return true # If any combination equals n, return true.
     end
   end
-  return false
+  return false # If initial statement fails, returns false. 
 end
 
 # Part 2
@@ -45,15 +45,15 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  if s.empty?
+  if s.empty? # Ensures string is not empty
     return false
   end
 
-  if !s.match(/^[[:alpha:]]$/)
+  if !s.match(/^[[:alpha:]]$/) # Ensures string starts with letter
     return false
-  elsif s.start_with?('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U')
+  elsif s.start_with?('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U') # If starts with vowel, return false
     return false
-  else
+  else # If all of above pass, return true. 
     return true
   end
 end
